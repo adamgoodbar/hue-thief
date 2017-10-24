@@ -25,13 +25,16 @@ class Prompt:
 
 
 def steal(device):
+    print("Setting Up Device")
     s = yield from util.setup(device, 9600)
     eui64 = yield from getattr(s, 'getEui64')()
     eui64 = bellows.types.named.EmberEUI64(*eui64)
 
+    print("Starting up mgflib")
     v = yield from s.mfglibStart(True)
     util.check(v[0], "Unable to start mfglib")
 
+    print("Setting Up Pcapy");
     DLT_IEEE802_15_4 = 195
     pcap = pure_pcapy.Dumper("log.pcap", 128, DLT_IEEE802_15_4)
     prompt = Prompt()
