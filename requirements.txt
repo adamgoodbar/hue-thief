@@ -1,1 +1,1 @@
-git+git://github.com/rcloran/bellows.git#egg=bellows
+git+git://github.com/rcloran/bellows.git@b816d6d87c9ac5440f99d1d496d0d8a0ae0e3e90#egg=bellows
