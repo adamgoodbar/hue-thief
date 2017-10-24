@@ -26,7 +26,7 @@ class Prompt:
 
 def steal(device):
     print("Setting Up Device")
-    s = yield from util.setup(device, 9600)
+    s = yield from util.setup(device, 115200)
     eui64 = yield from getattr(s, 'getEui64')()
     eui64 = bellows.types.named.EmberEUI64(*eui64)
 
